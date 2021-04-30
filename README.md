@@ -9,12 +9,12 @@
   Steps are :  
   -
 
-+ 1) Put Transaction information in index.php form. 
-+ 2) Call WS OnlineSecureService / processWebPayment. 
-+ 3) WS answer with URL.  
-+ 4) Redirect to this URL. 
-+ 5) Do transaction on GIM-eCommerce. 
-+ 6) Return to response.php. 
++  Put Transaction information in index.php form. 
++  Call WS OnlineSecureService / processWebPayment. 
++  WS answer with URL.  
++  Redirect to this URL. 
++  Do transaction on GIM-eCommerce. 
++  Return to response.php. 
 	
 	
 
@@ -30,7 +30,7 @@
 + _ECOMM_FRONT_PORT_		=>	Port number of your GIM-eCommerce FRONT server / No port :for prod gimbarakanet url. 
   
   
-  ##Start
+  ## Start
   -------------
 
   Copy all files in your PHP Server.   
