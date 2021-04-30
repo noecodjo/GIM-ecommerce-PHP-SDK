@@ -7,12 +7,16 @@
   This PHP files is an exemple of a client WS of GIM-eCommerce.  
   This files can help you to display Hosted Payment Page with a Merchant configuration.  
   Steps are :  
-	1) Put Transaction information in index.php form. 
-	2) Call WS OnlineSecureService / processWebPayment. 
-	3) WS answer with URL. 
-	4) Redirect to this URL. 
-	5) Do transaction on GIM-eCommerce. 
-	6) Return to response.php. 
+  -
+
++ 1) Put Transaction information in index.php form. 
++ 2) Call WS OnlineSecureService / processWebPayment. 
++ 3) WS answer with URL.  
++ 4) Redirect to this URL. 
++ 5) Do transaction on GIM-eCommerce. 
++ 6) Return to response.php. 
+	
+	
 
    ## Configuration
   ------------------
