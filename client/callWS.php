@@ -1,16 +1,12 @@
 <?php
 //don't to touch//
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 include_once('../defines.inc.php');
 include ('function.php');
-require '../lib/sdk/vendor/autoload.php';
+require '../lib/sdk/src/eCommerceClient/autoload.php';
 stream_context_create(array('ssl'=> array('verify_peer'=>false,'verify_peer_name'=>false)));
 ini_set('soap.wsdl_cache_enabled',0);
 ini_set('soap.wsdl_cache_ttl',0);
-
 
 $BankCode=$_POST['EcomBankCode'];
 $WsLogin=$_POST['EcomWsLogin'];
@@ -40,17 +36,9 @@ $res=RequestSignature($AcceptorPointID,$BankCode,$PurchaseAmount,$PurchaseCurren
 $PurchaseAmount=$res[0];
 //get signature
 $Signature=$res[1];
-$orderItems = new \ArrayType\ArrayOfOrderItem();
-$additionalFields = new \ArrayType\ArrayOfOrderAdditionalField();
-$request2=new \StructType\TransactionInfo($Version, $OrderId,
-'',
-'',
-'',
-'',
-$PurchaseAmount,
-'',
-$PurchaseCurrency,
-$ModeCapture, '', '', '', '', '',
+
+$request2=new \TransactionInfo($Version, $OrderId, '', '', '', '', $PurchaseAmount, '',
+    $PurchaseCurrency, $ModeCapture, '', '', '', '', '',
     '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', $SignatureMethod, $Signature,
@@ -60,23 +48,14 @@ $ModeCapture, '', '', '', '', '',
     '', '', '', '', '', '', $MerchantResponseURL, '', '',
     '', '', '', '', '', '', '', '', '','');
 
-$request=new \StructType\AuthHeader($WsLogin, $WsPassword, $AcceptorPointID, $BankCode);
+$request=new \AuthHeader($WsLogin, $WsPassword, $AcceptorPointID, $BankCode);
 
-$options = array(
-    \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => '/Applications/MAMP/htdocs/WsdlToClass-develop/test.wsdl',
-    \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_CLASSMAP => ClassMap::get(),
-
-);
-/**
- * Samples for Process ServiceType
- */
-
-$process = new \ServiceType\Process($options);
+$service = new \OnlineSecureServiceService();
 $header = new SoapHeader('http://www.hps.ma/PowerCARD/PaymentGateway/OnlineSecureServices','AuthHeader',$request,false);
-$process->setSoapHeaderAuthHeader($header);
+$service->__setSoapHeaders($header);
 
 
-$response = $process->ProcessWebPayment($request2);
+$response = $service->ProcessWebPayment($request2);
 $code=$response->getReasonCode();
 $erreur=$response->getReasonCodeDesc();
 echo $code.'<br>';
@@ -85,6 +64,10 @@ echo $erreur.'<br>';
 // redirect url payment
 if ($code== 1000){
     $url=$response->getUrlPayment();
+	//	echo "payUrl = ".$url;
+	if (strpos($url, 'https://172.16.5.198:8444/') !== false) {
+		$url=str_replace("https://172.16.5.198:8444", "https://gim.barakamoney.net", $url);
+	}
     header("Location: $url");
 }
 // redirect error
@@ -92,5 +75,5 @@ else{
    echo 'Erreur on call WS. <br>';
    var_dump($response);
 }
-
+//N04lN1~h
 ?>

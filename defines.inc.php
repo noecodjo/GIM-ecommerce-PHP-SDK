@@ -1,7 +1,7 @@
 <?php
 
-define('_ECOMM_FRONT_PROTOCOL_', 'http');
-define('_ECOMM_FRONT_SERVER_', '172.23.150.58');
-define('_ECOMM_FRONT_PORT_', '38080');
+define('_ECOMM_FRONT_PROTOCOL_', 'https');
+define('_ECOMM_FRONT_SERVER_', 'gim.barakamoney.net');  //4  gim.barakamoney.net
+define('_ECOMM_FRONT_PORT_', '');  //
 
 ?>
