@@ -27,5 +27,5 @@
   ##Start
   -------------
 
-  Copy all eCommerce-client files in your PHP Server
+  Copy all files in your PHP Server
   Open index.php in your browser: http://localhost/GIM-ecommerce-PHP-SDK
