@@ -18,16 +18,16 @@
   ------------------
 
   Open defines.inc.php files
-  Change parameters to put correct information to connect to PowerCARD-eCommerce
+  Change parameters to put correct information to connect to GIM-eCommerce
   _ECOMM_FRONT_PROTOCOL_ 	=> 'http' or 'https'
-  _ECOMM_FRONT_SERVER_		=>	IP ou Domain Name of your PowerCARD-eCommerce FRONT server
-  _ECOMM_FRONT_PORT_		=>	Port number of your PowerCARD-eCommerce FRONT server / No port :for prod gimbarakanet url
+  _ECOMM_FRONT_SERVER_		=>	IP ou Domain Name of your GIM-eCommerce FRONT server
+  _ECOMM_FRONT_PORT_		=>	Port number of your GIM-eCommerce FRONT server / No port :for prod gimbarakanet url
 
 
   Start
   -------------
 
   Copy all eCommerce-client files in your PHP Server
-  Open index.php in your browser: http://localhost/PowerCARD-eCommerce-client-php
+  Open index.php in your browser: http://localhost/GIM-ecommerce-PHP-SDK
 
   
