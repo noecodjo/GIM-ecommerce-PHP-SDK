@@ -11,9 +11,9 @@ include ('./client/function.php');
 
 Bank Code : <input type="text" name="EcomBankCode" value="900790" />
 <br/>
-WS Login : <input type="text" name="EcomWsLogin" value="mtick-ws-sandbox@gimsecure.net" />
+WS Login : <input type="text" name="EcomWsLogin" value="gim1-ws-sandbox@gimsecure.net" />
 <br />
-WS Password : <input type="text" name="EcomWsPassword" value="(x$GYMt92" />
+WS Password : <input type="text" name="EcomWsPassword" value="r)Phes1Q0" />
 <br />
 Acceptor Point ID : <input type="text" name="EcomAcceptorPointID" value="0079000087138" />
 <br />
